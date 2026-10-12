@@ -50,6 +50,8 @@ function hasDebug () {
 
 /* REPLACE: setters */
 
+// The postbuild step injects generated callback references.
+// eslint-disable-next-line no-unused-vars
 function collectSpan (spans, spanOverflow, maxSpans, parser, span) {
   if (spans[parser].length < maxSpans) {
     spans[parser].push(span)
