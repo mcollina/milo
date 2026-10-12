@@ -10,12 +10,11 @@ function allocate (milo, input) {
 }
 
 it('callback_reentry_and_mutation_are_rejected', t => {
-  let milo
   let nestedConsumed
   let mutationRejected = false
   let messageStartCalled = false
 
-  milo = setup({
+  const milo = setup({
     on_request (parser) {
       const state = milo.getState(parser)
       const parsed = milo.getParsed(parser)
@@ -88,10 +87,9 @@ it('callback_exceptions_are_rethrown_after_replay_cleanup', t => {
 })
 
 it('callback_destruction_is_deferred_and_stops_replay', t => {
-  let milo
   let callbackAfterDestroy = false
 
-  milo = setup({
+  const milo = setup({
     on_request (parser) {
       milo.destroy(parser)
     },
